@@ -18,4 +18,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> generalExceptionHandler(Exception ex){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
    }
+
+   @ExceptionHandler(DataAlreadyExistException.class)
+    public ResponseEntity<String> DataAlreadyExistExceptionHandler(DataAlreadyExistException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+   }
 }
